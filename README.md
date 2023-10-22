@@ -14,7 +14,13 @@ List the hardware and software prerequisites for your project. For example:
 - A micro-usb power cable
 
 
-## Installation
+## ARMv7 Installation
+
+https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
+
+
+
+
 
 
 
