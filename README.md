@@ -65,7 +65,7 @@ tail -f /var/log/syslog | grep DHCP
 
 This will show us log information from dnsmasq. Next, start up your new device. When it requests an address, dnsmasq will log "No address available" along with the MAC of the requesting device. Copy that MAC into your dhcp-host entry for the device and restart dnsmasq
 
-![https://github.com/HelixY2J/PiWall/img/mac_addr.png]
+![mac addr](https://github.com/HelixY2J/PiWall/blob/main/img/mac_addr.png)
 
 ## Cowrie
 
