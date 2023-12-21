@@ -57,13 +57,15 @@ sudo service dnsmasq restart
 
 Each time we want to put a new machine on your network you will need to get its MAC address and add a dhcp-host entry in your config file. We can do this by a variety of means. On Linux, ifconfig will list your MAC as HWaddr. Similarly, on Windows, ipconfig /all will list MAC addresses.
 
-There is a trick, however, that we used a lot when adding machines to our network. Before we bring our new device online, SSH into your dnsmasq machine and run the following:
+There is a trick, however, that we used a lot when adding machines to our network. Before we bring our new device online, SSH into dnsmasq machine and run the following:
 
 ```
 tail -f /var/log/syslog | grep DHCP
 ```
 
 This will show us log information from dnsmasq. Next, start up your new device. When it requests an address, dnsmasq will log "No address available" along with the MAC of the requesting device. Copy that MAC into your dhcp-host entry for the device and restart dnsmasq
+
+![https://github.com/HelixY2J/PiWall/img/mac_addr.png]
 
 ## Cowrie
 
@@ -76,3 +78,10 @@ attacker enters the decoy system, the system mimics the actual
 system and can monitor and log all the malicious actions
 performed by the attacker.
 
+
+
+## Snort 
+
+Snort rule is constructed to generate an alert
+whenever an external IP address (IPs from outside home
+network) attempts to initiate an ICMP Ping.
