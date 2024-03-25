@@ -16,8 +16,6 @@ We are also setting up a DHCP & DNS server on our pi with the help of Dnsmasq, i
 
 
 
-
-
 ## Prerequisites
 
 List the hardware and software prerequisites for your project. For example:
@@ -78,10 +76,23 @@ attacker enters the decoy system, the system mimics the actual
 system and can monitor and log all the malicious actions
 performed by the attacker.
 
+Navigate to the attacker's virtual machine and initiate a brute force attack on the SSH service using the 'hydra' tool. Cowrie will log each of these brute force attempts as shown
+
+![cowrieLogs](./img/cowrie.png)
+
 
 
 ## Snort 
 
 Snort rule is constructed to generate an alert
-whenever an external IP address (IPs from outside home
-network) attempts to initiate an ICMP Ping.
+whenever an external IP address attempts to initiate an ICMP Ping.
+
+To launch Snort in console mode run :
+
+```bash
+sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i eth0
+```
+
+Now launch the ping command from your attacker VM to the raspberry, it should trigger an alert like this.
+
+![snortAlert](./img/snort.png)
